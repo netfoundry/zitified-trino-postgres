@@ -1,0 +1,13 @@
+services:
+  trino-ziti:
+    image: trinodb/trino:latest
+    network_mode: "host"
+    container_name: trino-ziti
+    # We remove 'user: trino' to let Docker use default permissions
+    volumes:
+      - ./plugin/ziti-postgres:/usr/lib/trino/plugin/ziti-postgres
+      - ./etc/catalog/ziti_pg.properties:/etc/trino/catalog/ziti_pg.properties
+      # Reverting to direct file mount since that worked for you
+      - ./identity.json:/etc/trino/ziti/identity.json
+    environment:
+      - ZITI_IDENTITY_FILE=/etc/trino/ziti/identity.json
