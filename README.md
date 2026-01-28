@@ -22,7 +22,7 @@ Pre-reqs:
 ```
 mkdir repos
 cd repos
-git clone https://github.com/r-caamano/zitified-trino-postgres.git
+git clone https://github.com/netfoundry/zitified-trino-postgres.git
 cd zitified-trino-postgres
 mvn clean package -nsu
 cp target/trino-postgres-ziti-1.0.0.jar trino-ziti-test/plugin/ziti-postgres
