@@ -11,10 +11,14 @@ are available in the JVM's classpath. The Driver hands off socket creation to ou
 via the OpenZiti Identity and tunnels the traffic over the secure Ziti fabric.
 
 ## Build the Example
-On the linux system that will run the host the trino docker container
-Install maven if not already installed
-Install java jdk 21
-clone the repo
+On the linux system that will run the host the trino docker container:
+
+Pre-reqs:
+- Install maven if not already installed.
+
+- Install docker and docker compose if not already installed.
+
+- Install java jdk 21.
 ```
 mkdir repos
 cd repos
