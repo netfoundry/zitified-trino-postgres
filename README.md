@@ -70,7 +70,7 @@ The following assumes naming in the network diagram but can be substituted per p
        timestamp       TIMESTAMP NOT NULL
        );
    ```
-8. On the trino01 host perform the following from the repos/zitified-trino-postgres/trino-ziti-test folder
+7. On the trino01 host perform the following from the repos/zitified-trino-postgres/trino-ziti-test folder
    ```
    sudo docker compose down && sudo docker compose up -d && sudo docker logs trino-ziti -f
    ```
@@ -78,7 +78,7 @@ The following assumes naming in the network diagram but can be substituted per p
    ```
    2026-01-28T21:19:15.356Z	INFO	main	io.trino.server.Server	======== SERVER STARTED ========
    ```
-9. From another terminal window on the trino01 host
+8. From another terminal window on the trino01 host
    ```
    sudo docker exec -it trino-ziti trino
    trino> INSERT INTO ziti_pg.public.transform (doubled_value, original_value, status, "timestamp") VALUES (800, 1600, 'processed', TIMESTAMP '2025-01-25 12:13:19');
@@ -95,7 +95,7 @@ The following assumes naming in the network diagram but can be substituted per p
    (1 row)
    ```
 
-   9. In the terminal open in step 7 should see output similar to 
+9. In the terminal open in step 7 should see output similar to 
    ```
    2026-01-28T21:35:56.348Z	INFO	main	io.trino.server.Server	======== SERVER STARTED ========
    2026-01-28T21:36:17.931Z	INFO	Query-20260128_213617_00000_fgrbv-153	stderr	>>>> [ZITI] Loading Identity: /etc/trino/ziti/identity.json
