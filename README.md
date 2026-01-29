@@ -60,8 +60,9 @@ The following assumes naming in the network diagram but can be substituted per p
 
 4. Install and setup postgreSQL server on vm and install and run zeti-edge-tunnel with POSTGRESQL_TUN Identity [Linux](https://netfoundry.io/docs/openziti/reference/tunnelers/linux/)
 5. Create db: mydb, user: myuser, password: mypassword, grant all permissions on mydb to myuser
-6. create table transform e.g. 
-   ```CREATE TABLE transform (
+6. create table transform e.g.
+   ```
+   CREATE TABLE transform (
        id SERIAL PRIMARY KEY,          -- auto‑incrementing unique identifier
        doubled_value   INTEGER NOT NULL,
        original_value  INTEGER NOT NULL,
@@ -69,7 +70,7 @@ The following assumes naming in the network diagram but can be substituted per p
        timestamp       TIMESTAMP NOT NULL
        );
    ```
-7. On the trino01 host perform the following from the repos/zitified-trino-postgres/trino-ziti-test folder
+8. On the trino01 host perform the following from the repos/zitified-trino-postgres/trino-ziti-test folder
    ```
    sudo docker compose down && sudo docker compose up -d && sudo docker logs trino-ziti -f
    ```
@@ -77,7 +78,7 @@ The following assumes naming in the network diagram but can be substituted per p
    ```
    2026-01-28T21:19:15.356Z	INFO	main	io.trino.server.Server	======== SERVER STARTED ========
    ```
-8. From another terminal window on the trino01 host
+9. From another terminal window on the trino01 host
    ```
    sudo docker exec -it trino-ziti trino
    trino> INSERT INTO ziti_pg.public.transform (doubled_value, original_value, status, "timestamp") VALUES (800, 1600, 'processed', TIMESTAMP '2025-01-25 12:13:19');
